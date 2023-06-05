@@ -14,8 +14,8 @@
 - [Writing your first Python program](#writing-your-first-python-program)
 
 ### Chapter 2: Python Basics
-- [Python syntax and structure](#python-syntax-and-structure)
-- Variables and data types
+- [Python syntax and Structure](#python-syntax-and-structure)
+- [Variables and Data Types](#variables-and-data-types)
 - Basic operations and expressions
 - Input and output handling
 - Control flow statements (if, else, loops)
@@ -344,3 +344,44 @@ except ExceptionType:
     statement3
 ```   
 These are just some fundamental aspects of Python's syntax and structure. Python has many more features and concepts that can be explored as you dive deeper into the language.
+
+# Variables and Data types
+
+In Python, variables are used to store values that can be referenced and manipulated later in your code. Variables are created when you assign a value to them using the assignment operator (=).
+
+Here's the basic syntax for creating variables in Python:
+
+```python
+variable_name = value
+```
+Here's an example:
+```python
+name = "John"
+age = 25
+is_student = True
+```
+In this example, we created three variables: ```name```, ```age```, and ```is_student```. The name variable is assigned the value "John", the age variable is assigned the value 25 (an integer), and the is_student variable is assigned the value True (a boolean). <br>
+
+Python is a dynamically typed language, so you don't need to declare the type of a variable explicitly. The type is inferred based on the value assigned to it. You can also reassign a variable to a different value or a different data type later in your code. <br>
+
+Variables can be used in expressions and can be manipulated using various operations. For example:
+
+```python
+x = 10
+y = 5
+sum = x + y
+```
+In this example, we perform addition using the variables x and y and assign the result to the sum variable.
+
+Variables in Python are case-sensitive, so name and Name are considered different variables. It's good practice to use descriptive names for your variables to make your code more readable and maintainable.
+
+You can print the value of a variable using the print() function:
+
+```python
+print(name)
+print(age)
+print(is_student)
+```
+This will output the values of the variables ```name```, ```age```, and ```is_student```.
+
+Remember to choose meaningful names for your variables to improve the readability and understandability of your code.
