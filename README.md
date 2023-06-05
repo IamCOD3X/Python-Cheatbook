@@ -347,6 +347,8 @@ These are just some fundamental aspects of Python's syntax and structure. Python
 
 # Variables and Data types
 
+## Variables
+
 In Python, variables are used to store values that can be referenced and manipulated later in your code. Variables are created when you assign a value to them using the assignment operator (=).
 
 Here's the basic syntax for creating variables in Python:
@@ -385,3 +387,59 @@ print(is_student)
 This will output the values of the variables ```name```, ```age```, and ```is_student```.
 
 Remember to choose meaningful names for your variables to improve the readability and understandability of your code.
+
+## Data Types
+
+In Python, there are several built-in data types that you can use to represent different kinds of information. Here are the most common data types in Python:
+
+Numeric Types:
+```python
+
+# Integer
+x = 10
+print(x)  # Output: 10
+
+# Floating-Point Number
+y = 3.14
+print(y)  # Output: 3.14
+
+# Complex Number
+z = 2 + 3j
+print(z)  # Output: (2+3j)
+```
+String:
+```python
+name = "John"
+print(name)  # Output: John
+```
+Boolean:
+```python
+is_student = True
+print(is_student)  # Output: True
+```
+List:
+```python
+numbers = [1, 2, 3, 4, 5]
+print(numbers)  # Output: [1, 2, 3, 4, 5]
+```
+Tuple:
+```python
+point = (2, 3)
+print(point)  # Output: (2, 3)
+```
+Dictionary:
+```python
+person = {"name": "John", "age": 25}
+print(person)  # Output: {'name': 'John', 'age': 25}
+```
+Set:
+```python
+fruits = {"apple", "banana", "orange"}
+print(fruits)  # Output: {'banana', 'apple', 'orange'}
+```
+None:
+``` python
+value = None
+print(value)  # Output: None
+```
+These examples demonstrate how to assign values to variables of different data types and print their values. Remember that you can perform various operations and use specific methods associated with each data type to manipulate and work with the data stored in these variables.
