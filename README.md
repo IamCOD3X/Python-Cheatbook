@@ -16,7 +16,7 @@
 ### Chapter 2: Python Basics
 - [Python syntax and Structure](#python-syntax-and-structure)
 - [Variables and Data Types](#variables-and-data-types)
-- Basic operations and expressions
+- [Basic operations and expressions](#basic-operations-and-expressions)
 - Input and output handling
 - Control flow statements (if, else, loops)
 
@@ -443,3 +443,82 @@ value = None
 print(value)  # Output: None
 ```
 These examples demonstrate how to assign values to variables of different data types and print their values. Remember that you can perform various operations and use specific methods associated with each data type to manipulate and work with the data stored in these variables.
+
+# Basic operations and expressions
+
+Python supports various basic operations and expressions. Here are some common ones along with code examples:
+
+### Arithmetic Operations:
+
+Addition (+) <br>
+Subtraction (-) <br>
+Multiplication (*) <br>
+Division (/) <br>
+Modulo/Remainder (%) <br>
+Exponentiation (**) <br>
+
+```python
+
+a = 10
+b = 5
+
+addition = a + b           # 10 + 5 = 15
+subtraction = a - b        # 10 - 5 = 5
+multiplication = a * b     # 10 * 5 = 50
+division = a / b           # 10 / 5 = 2.0 (float division)
+remainder = a % b          # 10 % 5 = 0
+exponentiation = a ** b    # 10 ** 5 = 100000
+```
+### Comparison Operations:
+
+Equal to (==) <br>
+Not equal to (!=) <br>
+Greater than (>) <br>
+Less than (<) <br>
+Greater than or equal to (>=) <br>
+Less than or equal to (<=) <br>
+
+```python
+x = 5
+y = 10
+
+equal_to = x == y           # False
+not_equal_to = x != y       # True
+greater_than = x > y        # False
+less_than = x < y           # True
+greater_than_equal = x >= y # False
+less_than_equal = x <= y    # True
+```
+### Logical Operations:
+
+Logical AND (and) <br>
+Logical OR (or) <br>
+Logical NOT (not) <br>
+
+```python
+p = True
+q = False
+
+logical_and = p and q       # False
+logical_or = p or q         # True
+logical_not = not p         # False
+```
+### Assignment Operations:
+
+Simple assignment (=) <br>
+Addition assignment (+=) <br> 
+Subtraction assignment (-=) <br>
+Multiplication assignment (*=) <br>
+Division assignment (/=) <br>
+Modulo assignment (%=) <br>
+
+```python
+x = 10
+
+x += 5      # x = x + 5    => 15
+x -= 3      # x = x - 3    => 12
+x *= 2      # x = x * 2    => 24
+x /= 4      # x = x / 4    => 6.0
+x %= 4      # x = x % 4    => 2.0
+```
+These are just a few examples of basic operations and expressions in Python. Python provides many more operators and built-in functions that can be used for more complex computations.
