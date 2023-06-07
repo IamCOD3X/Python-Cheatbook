@@ -17,7 +17,7 @@
 - [Python syntax and Structure](#python-syntax-and-structure)
 - [Variables and Data Types](#variables-and-data-types)
 - [Basic operations and expressions](#basic-operations-and-expressions)
-- Input and output handling
+- [Input and output handling](#input-and-output-handling)
 - Control flow statements (if, else, loops)
 
 ### Chapter 3: Data Structures
@@ -522,3 +522,74 @@ x /= 4      # x = x / 4    => 6.0
 x %= 4      # x = x % 4    => 2.0
 ```
 These are just a few examples of basic operations and expressions in Python. Python provides many more operators and built-in functions that can be used for more complex computations.
+
+# Input and Output Handling 
+
+Input and output handling in Python can be done using various functions and methods. Here are some common ways to handle input and output in Python with code examples:
+
+### Standard Input and Output (Console):
+
+input() function: Reads input from the user as a string. <br>
+print() function: Displays output to the console. <br>
+
+```python
+# Input from the user
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+# Output to the console
+print("Your name is", name)
+print("Your age is", age)
+```
+### File Input and Output:
+
+open() function: Opens a file in a specified mode (e.g., 'r' for reading, 'w' for writing, 'a' for appending). <br>
+read() method: Reads the contents of a file. <br>
+write() method: Writes data to a file. <br>
+close() method: Closes the file. <br>
+
+```python
+# Writing to a file
+file = open("output.txt", "w")
+file.write("Hello, World!\n")
+file.write("This is a sample file.")
+file.close()
+
+# Reading from a file
+file = open("output.txt", "r")
+contents = file.read()
+print(contents)
+file.close()
+```
+### Formatted Output:
+Using the % operator: Allows you to format strings with placeholders. <br>
+Using the format() method: Provides a more flexible way to format strings. <br>
+Using f-strings (formatted string literals): Introduced in Python 3.6, provides a concise and readable way to format strings. <br>
+
+```python
+name = "John"
+age = 25
+
+# Using % operator
+print("My name is %s and I am %d years old." % (name, age))
+
+# Using format() method
+print("My name is {} and I am {} years old.".format(name, age))
+
+# Using f-strings
+print(f"My name is {name} and I am {age} years old.")
+```
+### Command-Line Arguments:
+sys.argv: A list in the sys module that contains command-line arguments passed to the script.
+
+```python
+import sys
+
+# Command-line arguments: python script.py arg1 arg2
+arg1 = sys.argv[1]
+arg2 = sys.argv[2]
+
+print("Argument 1:", arg1)
+print("Argument 2:", arg2)
+```
+These are some common techniques for handling input and output in Python. Python provides additional libraries and modules for more advanced input/output operations, such as csv for CSV file handling and json for JSON data serialization.
