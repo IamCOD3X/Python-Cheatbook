@@ -18,7 +18,7 @@
 - [Variables and Data Types](#variables-and-data-types)
 - [Basic operations and expressions](#basic-operations-and-expressions)
 - [Input and output handling](#input-and-output-handling)
-- Control flow statements (if, else, loops)
+- [Control flow statements (if, else, loops)](#control-flow-statements)
 
 ### Chapter 3: Data Structures
 - Lists, tuples, and sets
@@ -593,3 +593,74 @@ print("Argument 1:", arg1)
 print("Argument 2:", arg2)
 ```
 These are some common techniques for handling input and output in Python. Python provides additional libraries and modules for more advanced input/output operations, such as csv for CSV file handling and json for JSON data serialization.
+
+# Control flow statements
+Here are examples of control flow statements using if, else, and loops in Python:
+
+### 1. if statement:
+```python
+age = 18
+
+if age >= 18:
+    print("You are eligible to vote.")
+else:
+    print("You are not eligible to vote.")
+```
+
+### 2. if-else statement:
+```python
+temperature = 25
+
+if temperature > 30:
+    print("It's hot outside!")
+else:
+    print("It's not too hot.")
+```
+
+### 3. if-elif-else statement:
+```python
+num = 0
+
+if num > 0:
+    print("The number is positive.")
+elif num < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+```
+
+### 4. for loop:
+```python
+for i in range(1, 6):
+    print("Count:", i)
+```
+
+### 5. while loop:
+```python
+counter = 0
+
+while counter < 5:
+    print("Count:", counter)
+    counter += 1
+```
+
+### 6. nested loops:
+```python
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, "*", j, "=", i*j)
+```
+Output:
+```
+1 * 1 = 1
+1 * 2 = 2
+1 * 3 = 3
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+3 * 1 = 3
+3 * 2 = 6
+3 * 3 = 9
+```
+
+#### Note: Remember to indent the code blocks properly in Python, as indentation is significant in determining the block of code associated with a control flow statement.
