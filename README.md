@@ -21,7 +21,7 @@
 - [Control flow statements (if, else, loops)](#control-flow-statements)
 
 ### Chapter 3: Data Structures
-- Lists, tuples, and sets
+- [Lists, tuples, and sets](#lists-tuples-and-sets)
 - Dictionaries and hash maps
 - Strings and string manipulation
 - Arrays and matrices
@@ -664,3 +664,63 @@ Output:
 ```
 
 #### Note: Remember to indent the code blocks properly in Python, as indentation is significant in determining the block of code associated with a control flow statement.
+
+# Lists, tuples, and sets
+
+### 1. Lists:
+Lists are ordered collections of items that can be modified (mutable). They are represented by square brackets ([]).
+
+```python
+# Creating a list
+fruits = ['apple', 'banana', 'orange']
+
+# Accessing elements
+print(fruits[0])  # Output: apple
+
+# Modifying an element
+fruits[1] = 'grape'
+print(fruits)  # Output: ['apple', 'grape', 'orange']
+
+# Adding elements
+fruits.append('kiwi')
+print(fruits)  # Output: ['apple', 'grape', 'orange', 'kiwi']
+```
+
+### 2. Tuples:
+Tuples are ordered collections of items that cannot be modified (immutable). They are represented by parentheses () or without any delimiters.
+
+```python
+# Creating a tuple
+coordinates = (3, 4)
+
+# Accessing elements
+print(coordinates[0])  # Output: 3
+
+# Tuples are immutable, so modifying will result in an error
+coordinates[1] = 5  # TypeError: 'tuple' object does not support item assignment
+```
+
+### 3. Sets:
+Sets are unordered collections of unique elements. They do not allow duplicate values and are represented by curly braces ({}).
+
+```python
+# Creating a set
+fruits = {'apple', 'banana', 'orange'}
+
+# Adding elements
+fruits.add('kiwi')
+print(fruits)  # Output: {'apple', 'banana', 'orange', 'kiwi'}
+
+# Sets automatically remove duplicates
+fruits.add('apple')
+print(fruits)  # Output: {'apple', 'banana', 'orange', 'kiwi'}
+
+# Set operations
+vegetables = {'carrot', 'broccoli', 'banana'}
+common_fruits = fruits.intersection(vegetables)
+print(common_fruits)  # Output: {'banana'}
+```
+
+Note that sets are not ordered, so the order of elements in a set may vary when printed.
+
+These examples demonstrate the basic usage of lists, tuples, and sets in Python. Remember that lists and sets are mutable, while tuples are immutable.
