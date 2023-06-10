@@ -22,7 +22,7 @@
 
 ### Chapter 3: Data Structures
 - [Lists, tuples, and sets](#lists-tuples-and-sets)
-- Dictionaries and hash maps
+- [Dictionaries and hash maps](#dictionaries-and-hash-maps)
 - Strings and string manipulation
 - Arrays and matrices
 - Stacks, queues, and linked lists
@@ -724,3 +724,45 @@ print(common_fruits)  # Output: {'banana'}
 Note that sets are not ordered, so the order of elements in a set may vary when printed.
 
 These examples demonstrate the basic usage of lists, tuples, and sets in Python. Remember that lists and sets are mutable, while tuples are immutable.
+
+# Dictionaries and hash maps
+
+In Python, dictionaries are used to store key-value pairs, providing a way to map values to unique keys. Here's an example of dictionaries (which can be considered as hash maps):
+
+```python
+# Creating a dictionary
+student = {
+    'name': 'John',
+    'age': 20,
+    'grade': 'A'
+}
+
+# Accessing values
+print(student['name'])  # Output: John
+
+# Modifying values
+student['age'] = 21
+print(student)  # Output: {'name': 'John', 'age': 21, 'grade': 'A'}
+
+# Adding new key-value pairs
+student['city'] = 'New York'
+print(student)  # Output: {'name': 'John', 'age': 21, 'grade': 'A', 'city': 'New York'}
+
+# Removing a key-value pair
+del student['grade']
+print(student)  # Output: {'name': 'John', 'age': 21, 'city': 'New York'}
+
+# Checking if a key exists
+if 'age' in student:
+    print("Age exists in the dictionary.")
+
+# Iterating over keys and values
+for key, value in student.items():
+    print(key, ':', value)
+# Output:
+# name : John
+# age : 21
+# city : New York
+```
+
+Dictionaries allow you to store and retrieve values based on unique keys. They are commonly used for tasks such as storing and manipulating data with custom identifiers or performing lookups based on specific keys.
