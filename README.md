@@ -23,7 +23,7 @@
 ### Chapter 3: Data Structures
 - [Lists, tuples, and sets](#lists-tuples-and-sets)
 - [Dictionaries and hash maps](#dictionaries-and-hash-maps)
-- Strings and string manipulation
+- [Strings and string manipulation](#strings-and-string-manipulation)
 - Arrays and matrices
 - Stacks, queues, and linked lists
 
@@ -766,3 +766,49 @@ for key, value in student.items():
 ```
 
 Dictionaries allow you to store and retrieve values based on unique keys. They are commonly used for tasks such as storing and manipulating data with custom identifiers or performing lookups based on specific keys.
+
+# Strings and string manipulation
+
+In Python, strings are sequences of characters enclosed in single quotes (' ') or double quotes (" "). String manipulation refers to various operations performed on strings, such as concatenation, slicing, formatting, and more. Here's an example demonstrating some common string operations:
+
+```python
+# String concatenation
+string1 = "Hello"
+string2 = "World!"
+concatenated_string = string1 + " " + string2
+print(concatenated_string)  # Output: Hello World!
+
+# String length
+length = len(concatenated_string)
+print(length)  # Output: 12
+
+# Accessing characters by index
+first_char = concatenated_string[0]
+last_char = concatenated_string[-1]
+print(first_char, last_char)  # Output: H !
+
+# Slicing a string
+substring = concatenated_string[6:11]
+print(substring)  # Output: World
+
+# Reversing a string
+reversed_string = concatenated_string[::-1]
+print(reversed_string)  # Output: !dlroW olleH
+
+# Converting to uppercase and lowercase
+uppercase_string = concatenated_string.upper()
+lowercase_string = concatenated_string.lower()
+print(uppercase_string, lowercase_string)  # Output: HELLO WORLD! hello world!
+
+# Splitting a string into a list
+split_list = concatenated_string.split(" ")
+print(split_list)  # Output: ['Hello', 'World!']
+
+# String formatting
+name = "Alice"
+age = 25
+formatted_string = f"My name is {name} and I'm {age} years old."
+print(formatted_string)  # Output: My name is Alice and I'm 25 years old.
+```
+
+The language provides a rich set of string methods and functions that allow for various operations and transformations on strings.
