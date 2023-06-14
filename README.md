@@ -25,7 +25,7 @@
 - [Dictionaries and hash maps](#dictionaries-and-hash-maps)
 - [Strings and string manipulation](#strings-and-string-manipulation)
 - [Arrays and matrices[(#arrays-and-matrices)
-- Stacks, queues, and linked lists
+- [Stacks, queues, and linked lists](#stacks,-queues,-and-linked-lists)
 
 ### Chapter 4: Functions and Modules
 - Defining and using functions
@@ -887,3 +887,148 @@ print(matrix_sum)  # Output: 45
 ```
 
 Both examples demonstrate creating arrays and matrices, accessing elements, slicing, and performing operations using either the NumPy library or built-in Python data structures.
+
+# Stacks, queues, and linked lists
+
+Here are examples of implementing stacks, queues, and linked lists in Python.
+
+1. Stack:
+A stack follows the Last-In-First-Out (LIFO) principle, where the last element inserted is the first one to be removed.
+
+```python
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.stack.pop()
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.stack[-1]
+
+
+# Example usage:
+my_stack = Stack()
+my_stack.push(1)
+my_stack.push(2)
+my_stack.push(3)
+
+print(my_stack.pop())  # Output: 3
+print(my_stack.peek())  # Output: 2
+print(my_stack.is_empty())  # Output: False
+```
+
+2. Queue:
+A queue follows the First-In-First-Out (FIFO) principle, where the first element inserted is the first one to be removed.
+
+```python
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def enqueue(self, item):
+        self.queue.append(item)
+
+    def dequeue(self):
+        if self.is_empty():
+            return "Queue is empty"
+        return self.queue.pop(0)
+
+    def peek(self):
+        if self.is_empty():
+            return "Queue is empty"
+        return self.queue[0]
+
+
+# Example usage:
+my_queue = Queue()
+my_queue.enqueue(1)
+my_queue.enqueue(2)
+my_queue.enqueue(3)
+
+print(my_queue.dequeue())  # Output: 1
+print(my_queue.peek())  # Output: 2
+print(my_queue.is_empty())  # Output: False
+```
+
+3. Linked List:
+A linked list is a data structure where each element (node) contains a reference to the next node.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def prepend(self, data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+
+    def delete(self, data):
+        if self.is_empty():
+            return "Linked list is empty"
+
+        if self.head.data == data:
+            self.head = self.head.next
+        else:
+            current = self.head
+            while current.next:
+                if current.next.data == data:
+                    current.next = current.next.next
+                    return
+                current = current.next
+
+    def display(self):
+        if self.is_empty():
+            print("Linked list is empty")
+        else:
+            current = self.head
+            while current:
+                print(current.data, end=" ")
+                current = current.next
+            print()
+
+
+# Example usage:
+my_list = LinkedList()
+my_list.append(1)
+my_list.append(2)
+my_list.prepend(3)
+my_list.delete(2)
+my_list.display()  # Output: 3 1
+print(my_list.is_empty())  # Output:
