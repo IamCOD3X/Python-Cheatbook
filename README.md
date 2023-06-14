@@ -24,8 +24,8 @@
 - [Lists, tuples, and sets](#lists-tuples-and-sets)
 - [Dictionaries and hash maps](#dictionaries-and-hash-maps)
 - [Strings and string manipulation](#strings-and-string-manipulation)
-- [Arrays and matrices[(#arrays-and-matrices)
-- [Stacks, queues, and linked lists](#stacks,-queues,-and-linked-lists)
+- [Arrays and matrices](#arrays-and-matrices)
+- [Stacks, queues, and linked lists](#stacks-queues-and-linked-lists)
 
 ### Chapter 4: Functions and Modules
 - Defining and using functions
