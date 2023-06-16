@@ -29,7 +29,7 @@
 
 ### Chapter 4: Functions and Modules
 - [Defining and using functions](#defining-and-using-functions)
-- Function parameters and return values
+- [Function parameters and return values](#function-parameters-and-return-values)
 - Lambda functions and closures
 - Modules and importing
 - Creating and using packages
@@ -1131,3 +1131,28 @@ Output:
 ```
 
 These examples demonstrate various aspects of defining and using functions in Python. You can customize the functions based on your requirements and reuse them in different parts of your code.
+
+# Function parameters and return values
+
+In Python, functions can have parameters to accept input values, and they can also return values as the result of their computations. Here's an example that illustrates function parameters and return values:
+
+```python
+def calculate_sum(a, b):
+    sum = a + b
+    return sum
+
+# Calling the function and storing the result
+result = calculate_sum(3, 4)
+print(result)
+```
+
+Output:
+```
+7
+```
+
+In this example, the function `calculate_sum` takes two parameters, `a` and `b`, representing the numbers to be added. It computes the sum of the two numbers and returns the result using the `return` statement.
+
+When calling the function `calculate_sum(3, 4)`, the values `3` and `4` are passed as arguments to the function. The function performs the addition operation and returns the sum, which is then stored in the `result` variable. Finally, the value of `result` is printed, resulting in `7`.
+
+You can have functions with multiple parameters of different types, and you can customize the logic inside the function to perform various operations and computations. The return value allows you to capture and utilize the result of the function in your code.
