@@ -28,7 +28,7 @@
 - [Stacks, queues, and linked lists](#stacks-queues-and-linked-lists)
 
 ### Chapter 4: Functions and Modules
-- Defining and using functions
+- [Defining and using functions](#defining-and-using-functions)
 - Function parameters and return values
 - Lambda functions and closures
 - Modules and importing
@@ -1032,3 +1032,102 @@ my_list.prepend(3)
 my_list.delete(2)
 my_list.display()  # Output: 3 1
 print(my_list.is_empty())  # Output:
+```
+# Defining and using functions
+
+Defining functions in python is very simple.
+Here are some examples of defining and using functions in Python:
+
+1. Function without parameters:
+
+```python
+def say_hello():
+    print("Hello!")
+
+# Calling the function
+say_hello()
+```
+
+Output:
+```
+Hello!
+```
+
+2. Function with parameters:
+
+```python
+def add_numbers(a, b):
+    sum = a + b
+    return sum
+
+# Calling the function
+result = add_numbers(3, 5)
+print(result)
+```
+
+Output:
+```
+8
+```
+
+3. Function with default parameter values:
+
+```python
+def greet(name, greeting="Hello"):
+    print(greeting + ", " + name + "!")
+
+# Calling the function with one argument
+greet("Alice")
+
+# Calling the function with two arguments
+greet("Bob", "Hi")
+```
+
+Output:
+```
+Hello, Alice!
+Hi, Bob!
+```
+
+4. Function with variable number of arguments (variadic function):
+
+```python
+def calculate_average(*args):
+    total = sum(args)
+    average = total / len(args)
+    return average
+
+# Calling the function with different number of arguments
+result1 = calculate_average(2, 4, 6)
+result2 = calculate_average(1, 3, 5, 7, 9)
+
+print(result1)
+print(result2)
+```
+
+Output:
+```
+4.0
+5.0
+```
+
+5. Recursive function:
+
+```python
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Calling the function
+result = factorial(5)
+print(result)
+```
+
+Output:
+```
+120
+```
+
+These examples demonstrate various aspects of defining and using functions in Python. You can customize the functions based on your requirements and reuse them in different parts of your code.
