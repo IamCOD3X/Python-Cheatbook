@@ -30,7 +30,7 @@
 ### Chapter 4: Functions and Modules
 - [Defining and using functions](#defining-and-using-functions)
 - [Function parameters and return values](#function-parameters-and-return-values)
-- Lambda functions and closures
+- [Lambda functions and closures](#lambda-functions-and-closures)
 - Modules and importing
 - Creating and using packages
 
@@ -1156,3 +1156,36 @@ In this example, the function `calculate_sum` takes two parameters, `a` and `b`,
 When calling the function `calculate_sum(3, 4)`, the values `3` and `4` are passed as arguments to the function. The function performs the addition operation and returns the sum, which is then stored in the `result` variable. Finally, the value of `result` is printed, resulting in `7`.
 
 You can have functions with multiple parameters of different types, and you can customize the logic inside the function to perform various operations and computations. The return value allows you to capture and utilize the result of the function in your code.
+
+# Lambda functions and closures
+In Python, lambda functions are anonymous functions that can be defined inline and used where a function object is expected. Closures, on the other hand, are functions that remember the values in the enclosing scope even if they are executed outside that scope. They are created when a nested function references a value from its containing function.
+
+Code Example
+
+```python
+def outer_function(x):
+    y = 4
+
+    # Define a lambda function within the outer function
+    square = lambda a: a ** 2
+
+    # Define a closure that references the variables from the outer function
+    def inner_function(b):
+        return x + y + square(b)
+
+    return inner_function
+
+# Create a closure by calling the outer function
+closure = outer_function(3)
+
+# Call the closure, passing an argument
+result = closure(2)
+
+print(result)  # Output: 15
+```
+
+In the above example, we have an `outer_function` that takes a parameter `x`. Inside the `outer_function`, we define a lambda function called `square` that squares its argument. We also define an `inner_function` that references the variables `x`, `y`, and `square` from the outer function. This creates a closure because `inner_function` remembers the values of `x`, `y`, and `square` even after `outer_function` has finished executing.
+
+We then call `outer_function` with an argument of `3`, which returns the `inner_function` as a closure. We assign this closure to the variable `closure`. Finally, we call `closure` with an argument of `2`, and it performs the computation `x + y + square(b)` using the remembered values, resulting in `15` being printed.
+
+Lambda functions and closures are powerful features in Python that allow for more concise and flexible code, especially in situations where you need to define small, one-time functions or when you want to encapsulate data within a function.
