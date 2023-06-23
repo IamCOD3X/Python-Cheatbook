@@ -32,7 +32,7 @@
 - [Function parameters and return values](#function-parameters-and-return-values)
 - [Lambda functions and closures](#lambda-functions-and-closures)
 - [Modules and importing](#modules-and-importing)
-- Creating and using packages
+- [Creating and using packages](#Creating and using packages)
 
 ### Chapter 5: Object-Oriented Programming
 - Introduction to object-oriented programming (OOP)
@@ -1245,3 +1245,47 @@ print(result_subtraction)  # Output: 6
 In this case, we use the `from` keyword to import only the `addition` and `subtraction` functions from the `math_operations` module directly into our script's namespace. This allows us to use the functions without specifying the module name.
 
 These examples demonstrate the basic concepts of modules and importing in Python. They enable you to separate your code into reusable modules and easily access the functionalities defined in those modules.
+
+# Creating and using packages
+
+In Python, a package is a way to organize related modules into a directory hierarchy. A package is simply a directory that contains Python module files and an additional `__init__.py` file, which marks the directory as a package.
+
+Here's an example that demonstrates how to create and use packages in Python:
+
+Let's say we have the following directory structure:
+
+```
+my_package/
+    __init__.py
+    math_operations/
+        __init__.py
+        addition.py
+        subtraction.py
+```
+
+In this example, we have a package called `my_package` that contains a sub-package called `math_operations`. Inside the `math_operations` sub-package, we have two module files: `addition.py` and `subtraction.py`. The `__init__.py` files in both the package and sub-package are empty files that indicate the directory as a package.
+
+Now, let's see how we can use these packages and modules in our Python code:
+
+```python
+# main.py
+
+from my_package.math_operations.addition import add
+from my_package.math_operations.subtraction import subtract
+
+result_addition = add(5, 3)
+result_subtraction = subtract(10, 4)
+
+print(result_addition)     # Output: 8
+print(result_subtraction)  # Output: 6
+```
+
+In the `main.py` script, we use the `from` keyword to import the `add` function from the `addition` module within the `math_operations` sub-package of the `my_package` package. Similarly, we import the `subtract` function from the `subtraction` module.
+
+We can now call the `add` and `subtract` functions as if they were defined in our script directly. The results are stored in the variables `result_addition` and `result_subtraction`, respectively.
+
+Finally, we print the results, which will output `8` and `6`, respectively.
+
+By organizing related modules into packages, you can create a hierarchical structure and avoid naming conflicts. It provides a way to group related functionality and promote better code organization and reusability.
+
+Note: In Python 3.3 and above, the `__init__.py` file is not required for a directory to be recognized as a package. However, it is still recommended to include an empty `__init__.py` file to maintain compatibility with older versions of Python and to clearly indicate the package's purpose.
