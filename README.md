@@ -31,7 +31,7 @@
 - [Defining and using functions](#defining-and-using-functions)
 - [Function parameters and return values](#function-parameters-and-return-values)
 - [Lambda functions and closures](#lambda-functions-and-closures)
-- Modules and importing
+- [Modules and importing](#modules-and-importing)
 - Creating and using packages
 
 ### Chapter 5: Object-Oriented Programming
@@ -1189,3 +1189,59 @@ In the above example, we have an `outer_function` that takes a parameter `x`. In
 We then call `outer_function` with an argument of `3`, which returns the `inner_function` as a closure. We assign this closure to the variable `closure`. Finally, we call `closure` with an argument of `2`, and it performs the computation `x + y + square(b)` using the remembered values, resulting in `15` being printed.
 
 Lambda functions and closures are powerful features in Python that allow for more concise and flexible code, especially in situations where you need to define small, one-time functions or when you want to encapsulate data within a function.
+
+# Modules and importing
+
+Modules are files containing Python definitions and statements that can be imported and used in other Python programs. They allow you to organize your code into reusable components and promote modularity. Importing modules in Python allows you to access the functions, classes, and variables defined in those modules.
+
+Here's an example that demonstrates importing a module and using its functions:
+
+Suppose we have a module called `math_operations.py`, which defines two functions: `addition` and `subtraction`. The module looks like this:
+
+```python
+# math_operations.py
+
+def addition(a, b):
+    return a + b
+
+def subtraction(a, b):
+    return a - b
+```
+
+Now, let's create another Python script called `main.py` where we import and use the functions from the `math_operations` module:
+
+```python
+# main.py
+
+import math_operations
+
+result_addition = math_operations.addition(5, 3)
+result_subtraction = math_operations.subtraction(10, 4)
+
+print(result_addition)     # Output: 8
+print(result_subtraction)  # Output: 6
+```
+
+In the `main.py` script, we use the `import` statement to import the `math_operations` module. This makes all the functions defined in the `math_operations` module accessible in our script.
+
+We then call the `addition` and `subtraction` functions from the `math_operations` module, passing the required arguments. The results are stored in the variables `result_addition` and `result_subtraction`, respectively.
+
+Finally, we print the results, which will output `8` and `6`, respectively.
+
+There are also different ways to import specific functions or variables from a module. Here's an example using the `from` keyword:
+
+```python
+# main.py
+
+from math_operations import addition, subtraction
+
+result_addition = addition(5, 3)
+result_subtraction = subtraction(10, 4)
+
+print(result_addition)     # Output: 8
+print(result_subtraction)  # Output: 6
+```
+
+In this case, we use the `from` keyword to import only the `addition` and `subtraction` functions from the `math_operations` module directly into our script's namespace. This allows us to use the functions without specifying the module name.
+
+These examples demonstrate the basic concepts of modules and importing in Python. They enable you to separate your code into reusable modules and easily access the functionalities defined in those modules.
