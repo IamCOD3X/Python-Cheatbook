@@ -32,7 +32,7 @@
 - [Function parameters and return values](#function-parameters-and-return-values)
 - [Lambda functions and closures](#lambda-functions-and-closures)
 - [Modules and importing](#modules-and-importing)
-- [Creating and using packages](#Creating and using packages)
+- [Creating and using packages](#creating-and-using-packages)
 
 ### Chapter 5: Object-Oriented Programming
 - Introduction to object-oriented programming (OOP)
