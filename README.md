@@ -35,7 +35,7 @@
 - [Creating and using packages](#creating-and-using-packages)
 
 ### Chapter 5: Object-Oriented Programming
-- Introduction to object-oriented programming (OOP)
+- [Introduction to Object-Oriented Programming](#introduction-to-object-oriented-programming)
 - Classes and objects
 - Inheritance and polymorphism
 - Encapsulation and data hiding
@@ -1289,3 +1289,56 @@ Finally, we print the results, which will output `8` and `6`, respectively.
 By organizing related modules into packages, you can create a hierarchical structure and avoid naming conflicts. It provides a way to group related functionality and promote better code organization and reusability.
 
 Note: In Python 3.3 and above, the `__init__.py` file is not required for a directory to be recognized as a package. However, it is still recommended to include an empty `__init__.py` file to maintain compatibility with older versions of Python and to clearly indicate the package's purpose.
+
+# Introduction to object-oriented programming
+
+Object-oriented programming (OOP) is a programming paradigm that organizes code into objects, which are instances of classes. <br>
+Each object has its own properties (attributes) and behaviors (methods), allowing for modular and reusable code. <br>
+Python is an object-oriented programming language that fully supports OOP concepts. Let's explore OOP in Python with a code example.
+
+```python
+# Define a class
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.is_running = False
+
+    def start_engine(self):
+        self.is_running = True
+        print(f"The {self.brand} {self.model}'s engine is now running.")
+
+    def stop_engine(self):
+        self.is_running = False
+        print(f"The {self.brand} {self.model}'s engine is now stopped.")
+
+    def honk(self):
+        if self.is_running:
+            print("Beep beep!")
+        else:
+            print("The engine is not running. Start the engine first.")
+
+# Create instances of the Car class
+car1 = Car("Toyota", "Corolla", 2021)
+car2 = Car("Tesla", "Model S", 2022)
+
+# Accessing attributes
+print(car1.brand)  # Output: Toyota
+print(car2.model)  # Output: Model S
+
+# Calling methods
+car1.start_engine()  # Output: The Toyota Corolla's engine is now running.
+car2.honk()         # Output: The engine is not running. Start the engine first.
+
+car2.start_engine()  # Output: The Tesla Model S's engine is now running.
+car2.honk()         # Output: Beep beep!
+
+car1.stop_engine()   # Output: The Toyota Corolla's engine is now stopped.
+```
+
+In the example above, we define a `Car` class with attributes such as `brand`, `model`, `year`, and `is_running`. The `__init__` method is a special method used to initialize the object's attributes. We also define methods like `start_engine`, `stop_engine`, and `honk`, which perform actions on the car object.
+
+We then create two instances of the `Car` class (`car1` and `car2`) and access their attributes using dot notation (`car1.brand`, `car2.model`). We can also call methods on the instances (`car1.start_engine()`, `car2.honk()`), which operate on the specific instance's data.
+
+Object-oriented programming helps organize code into logical units (objects) and promotes code reuse and modularity. It allows for easier maintenance, scalability, and abstraction of complex systems.
