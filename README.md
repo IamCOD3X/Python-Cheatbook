@@ -37,7 +37,7 @@
 ### Chapter 5: Object-Oriented Programming
 - [Introduction to Object-Oriented Programming](#introduction-to-object-oriented-programming)
 - [Classes and Objects](classes-and-objects)
-- Inheritance and polymorphism
+- [Inheritance and polymorphism](inheritance-and-polymorphism)
 - Encapsulation and data hiding
 - Advanced OOP concepts (abstract classes, interfaces)
 
@@ -1381,3 +1381,53 @@ We can access the attributes of the objects using dot notation (`person1.name`, 
 In this way, each object of the `Person` class can have its own values for the `name` and `age` attributes, and calling the `greet` method will display the appropriate information for each object.
 
 Classes provide a way to define and create objects with shared attributes and behaviors. Objects, on the other hand, are specific instances of a class that have their own unique data.
+
+# Inheritance and polymorphism
+
+In Python, you can create class hierarchies using inheritance and leverage polymorphism to work with objects of different classes through a common interface. 
+
+Here's an example to demonstrate inheritance and polymorphism in Python:
+
+```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        raise NotImplementedError("Subclass must implement the speak() method.")
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+class Cow(Animal):
+    def speak(self):
+        return "Moo!"
+
+def make_animal_speak(animal):
+    print(animal.speak())
+
+# Create instances of different animal subclasses
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+cow = Cow("Daisy")
+
+# Call the speak() method using polymorphism
+make_animal_speak(dog)  # Output: Woof!
+make_animal_speak(cat)  # Output: Meow!
+make_animal_speak(cow)  # Output: Moo!
+```
+
+In the example above, we define a base class `Animal` that has an `__init__` method to set the `name` attribute and a `speak` method. The `speak` method raises a `NotImplementedError` because it's meant to be overridden by subclasses.
+
+We then create three subclasses: `Dog`, `Cat`, and `Cow`. Each subclass defines its own `speak` method, providing a unique implementation of the behavior.
+
+The `make_animal_speak` function takes an `Animal` object as an argument and calls its `speak` method. Since each subclass of `Animal` overrides the `speak` method, the appropriate method implementation is invoked based on the actual object type passed to the function. This is an example of polymorphism.
+
+Finally, we create instances of the `Dog`, `Cat`, and `Cow` classes, and pass them to `make_animal_speak` to see the polymorphic behavior in action.
+
+When you run the code, you will get the expected outputs: "Woof!", "Meow!", and "Moo!", corresponding to the `speak` methods of the respective animal subclasses.
