@@ -38,7 +38,7 @@
 - [Introduction to Object-Oriented Programming](#introduction-to-object-oriented-programming)
 - [Classes and Objects](classes-and-objects)
 - [Inheritance and polymorphism](inheritance-and-polymorphism)
-- Encapsulation and data hiding
+- [Encapsulation and data hiding](encapsulation-and-data-hiding)
 - Advanced OOP concepts (abstract classes, interfaces)
 
 ### Chapter 6: File Handling and Input/Output Operations
@@ -1431,3 +1431,77 @@ The `make_animal_speak` function takes an `Animal` object as an argument and cal
 Finally, we create instances of the `Dog`, `Cat`, and `Cow` classes, and pass them to `make_animal_speak` to see the polymorphic behavior in action.
 
 When you run the code, you will get the expected outputs: "Woof!", "Meow!", and "Moo!", corresponding to the `speak` methods of the respective animal subclasses.
+
+# Encapsulation and Data Hiding
+
+Encapsulation is the principle of bundling data and methods that operate on that data within a class, hiding the internal details and providing a public interface for interacting with the object. In Python, encapsulation can be achieved by using access modifiers and property decorators to control access to class members.
+
+Here's an example to illustrate encapsulation and data hiding in Python:
+
+```python
+class Car:
+    def __init__(self, make, model, year):
+        self._make = make
+        self._model = model
+        self._year = year
+        self._mileage = 0
+
+    def get_make(self):
+        return self._make
+
+    def get_model(self):
+        return self._model
+
+    def get_year(self):
+        return self._year
+
+    def get_mileage(self):
+        return self._mileage
+
+    def set_mileage(self, mileage):
+        if mileage >= 0:
+            self._mileage = mileage
+        else:
+            raise ValueError("Mileage cannot be negative.")
+
+    def drive(self, miles):
+        if miles >= 0:
+            self._mileage += miles
+        else:
+            raise ValueError("Invalid mileage.")
+
+# Create a car instance
+my_car = Car("Toyota", "Camry", 2020)
+
+# Accessing data using getter methods
+print(my_car.get_make())    # Output: Toyota
+print(my_car.get_model())   # Output: Camry
+print(my_car.get_year())    # Output: 2020
+
+# Setting and accessing mileage
+my_car.set_mileage(5000)
+print(my_car.get_mileage())  # Output: 5000
+
+# Driving the car
+my_car.drive(100)
+print(my_car.get_mileage())  # Output: 5100
+
+# Trying to set negative mileage (raises ValueError)
+my_car.set_mileage(-100)    # Raises ValueError
+```
+
+In the code example above, we have a `Car` class that represents a car object. The class has instance variables `_make`, `_model`, `_year`, and `_mileage`, all of which are intended to be hidden from direct access.
+
+To achieve encapsulation and data hiding, we use the underscore prefix convention to indicate that these variables are intended to be private. Although they can still be accessed outside the class, it is considered a convention that they should not be accessed directly.
+
+To provide controlled access to these private variables, we define getter methods (e.g., `get_make`, `get_model`, etc.) that return their values. These methods allow external code to retrieve the values indirectly, maintaining encapsulation by preventing direct access to the private variables.
+
+We also define a setter method (`set_mileage`) to set the value of `_mileage`. The setter method performs input validation to ensure that the mileage is not negative.
+
+The `drive` method allows us to increment the `_mileage` by a given number of miles. Again, this method performs input validation to ensure the mileage increment is not negative.
+
+In the example, we create an instance of the `Car` class and demonstrate accessing the private variables using the getter methods (`get_make`, `get_model`, etc.), setting the mileage using the `set_mileage` method, and incrementing the mileage using the `drive` method.
+
+Attempting to set negative mileage using `set_mileage` raises a `ValueError` to enforce data integrity and validation.
+
+By following this approach, we encapsulate the internal details of the `Car` class and provide controlled access to the data through public methods, promoting data hiding and encapsulation principles.
