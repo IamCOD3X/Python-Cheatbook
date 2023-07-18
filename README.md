@@ -36,10 +36,10 @@
 
 ### Chapter 5: Object-Oriented Programming
 - [Introduction to Object-Oriented Programming](#introduction-to-object-oriented-programming)
-- [Classes and Objects](classes-and-objects)
-- [Inheritance and polymorphism](inheritance-and-polymorphism)
-- [Encapsulation and data hiding](encapsulation-and-data-hiding)
-- Advanced OOP concepts (abstract classes, interfaces)
+- [Classes and Objects](#classes-and-objects)
+- [Inheritance and polymorphism](#inheritance-and-polymorphism)
+- [Encapsulation and data hiding](#encapsulation-and-data-hiding)
+- [Advanced OOP concepts](#advanced-oop-concepts)
 
 ### Chapter 6: File Handling and Input/Output Operations
 - Reading from and writing to files
@@ -1505,3 +1505,90 @@ In the example, we create an instance of the `Car` class and demonstrate accessi
 Attempting to set negative mileage using `set_mileage` raises a `ValueError` to enforce data integrity and validation.
 
 By following this approach, we encapsulate the internal details of the `Car` class and provide controlled access to the data through public methods, promoting data hiding and encapsulation principles.
+
+# Advanced OOP concepts
+
+In Python, abstract classes and interfaces are essential concepts in object-oriented programming. Although Python does not have a formal interface keyword like some other languages, we can use abstract base classes (ABCs) from the `abc` module to create abstract classes and implement interfaces.
+
+1. Abstract Classes:
+
+Abstract classes are classes that cannot be instantiated on their own. They serve as a blueprint for other classes, defining common methods that subclasses must implement. To create an abstract class in Python, we use the `ABC` class from the `abc` module and decorate abstract methods with the `@abstractmethod` decorator.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+# Attempt to instantiate the abstract class will raise TypeError.
+# shape = Shape()
+
+rectangle = Rectangle(5, 4)
+print("Rectangle Area:", rectangle.area())
+print("Rectangle Perimeter:", rectangle.perimeter())
+
+circle = Circle(3)
+print("Circle Area:", circle.area())
+print("Circle Perimeter:", circle.perimeter())
+```
+
+2. Interfaces:
+
+In Python, interfaces are not explicitly defined, but we can create a class with abstract methods to represent an interface. The implementation of these methods must be provided by the classes that implement the interface. Here's an example:
+
+```python
+from abc import ABC, abstractmethod
+
+class LoggerInterface(ABC):
+    @abstractmethod
+    def log(self, message):
+        pass
+
+class ConsoleLogger(LoggerInterface):
+    def log(self, message):
+        print(f"Console Log: {message}")
+
+class FileLogger(LoggerInterface):
+    def __init__(self, filename):
+        self.filename = filename
+
+    def log(self, message):
+        with open(self.filename, 'a') as file:
+            file.write(f"{message}\n")
+
+# Create instances of classes implementing the LoggerInterface
+console_logger = ConsoleLogger()
+file_logger = FileLogger("log.txt")
+
+console_logger.log("This is a console log.")
+file_logger.log("This is a file log.")
+```
+
+In this example, `LoggerInterface` is not an explicit keyword, but the `LoggerInterface` class acts as an interface by defining an abstract method `log()`. The classes `ConsoleLogger` and `FileLogger` implement this interface by providing their own implementation for the `log()` method.
