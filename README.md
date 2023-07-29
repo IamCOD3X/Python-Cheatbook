@@ -42,7 +42,7 @@
 - [Advanced OOP concepts](#advanced-oop-concepts)
 
 ### Chapter 6: File Handling and Input/Output Operations
-- Reading from and writing to files
+- [Reading from and writing to files](#reading-from-and-writing-to-files)
 - Working with directories and file paths
 - File modes and permissions
 - Standard input and output
@@ -1592,3 +1592,58 @@ file_logger.log("This is a file log.")
 ```
 
 In this example, `LoggerInterface` is not an explicit keyword, but the `LoggerInterface` class acts as an interface by defining an abstract method `log()`. The classes `ConsoleLogger` and `FileLogger` implement this interface by providing their own implementation for the `log()` method.
+
+# Reading From and Writing to Files
+
+In Python, you can read from and write to files using built-in file handling functions. Here's a simple code example demonstrating how to read from a file and write to a file:
+
+1. Reading from a file:
+
+Suppose you have a file called "input.txt" with the following content:
+
+```
+Hello, this is the content of the input file.
+Welcome to the file handling in Python.
+```
+
+You can read the content of this file using Python as follows:
+
+```python
+# Open the file in read mode
+with open('input.txt', 'r') as file:
+    # Read all lines and store them in a list
+    lines = file.readlines()
+
+# Print the content of the file
+for line in lines:
+    print(line.strip())  # strip() removes the trailing newline character
+```
+
+2. Writing to a file:
+
+Let's create a new file called "output.txt" and write some content to it:
+
+```python
+# Content to write to the file
+content_to_write = [
+    "This is the first line.",
+    "Here comes the second line.",
+    "Finally, the third line!"
+]
+
+# Open the file in write mode (this will create the file if it doesn't exist)
+with open('output.txt', 'w') as file:
+    # Write each line from the content_to_write list to the file
+    for line in content_to_write:
+        file.write(line + '\n')  # Add a newline character at the end of each line
+```
+
+After running this code, you'll have a new file "output.txt" with the following content:
+
+```
+This is the first line.
+Here comes the second line.
+Finally, the third line!
+```
+
+Remember to always use the `with` statement when working with files, as it ensures that the file is properly closed after its suite finishes, even if an exception is raised during the operation.
