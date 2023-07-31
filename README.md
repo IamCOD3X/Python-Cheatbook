@@ -43,7 +43,7 @@
 
 ### Chapter 6: File Handling and Input/Output Operations
 - [Reading from and writing to files](#reading-from-and-writing-to-files)
-- Working with directories and file paths
+- [Working with directories and file paths](#working-with-directories-and-file-paths)
 - File modes and permissions
 - Standard input and output
 - Serialization and deserialization (JSON, XML, CSV)
@@ -1647,3 +1647,122 @@ Finally, the third line!
 ```
 
 Remember to always use the `with` statement when working with files, as it ensures that the file is properly closed after its suite finishes, even if an exception is raised during the operation.
+
+
+# Working with directories and file paths
+
+Working with directories and file paths in Python is essential for file management and manipulation tasks. Python provides the `os` and `os.path` modules to work with directories and file paths. Additionally, Python 3.4+ introduced the `pathlib` module, which provides a more object-oriented and platform-independent approach for handling paths.
+
+Here are some code examples using both the `os` module and the `pathlib` module:
+
+### Using `os` module:
+
+1. Get the current working directory:
+
+```python
+import os
+
+current_directory = os.getcwd()
+print("Current directory:", current_directory)
+```
+
+2. Create a new directory:
+
+```python
+import os
+
+new_directory = "my_new_directory"
+os.mkdir(new_directory)
+```
+
+3. Check if a directory exists:
+
+```python
+import os
+
+directory_to_check = "my_directory"
+if os.path.exists(directory_to_check):
+    print(f"The directory {directory_to_check} exists.")
+else:
+    print(f"The directory {directory_to_check} does not exist.")
+```
+
+4. List files in a directory:
+
+```python
+import os
+
+directory_path = "my_directory"
+files_list = os.listdir(directory_path)
+print("Files in the directory:", files_list)
+```
+
+5. Join paths safely:
+
+```python
+import os
+
+directory = "my_directory"
+file_name = "example.txt"
+
+# Join the directory and file name safely
+file_path = os.path.join(directory, file_name)
+print("File path:", file_path)
+```
+
+### Using `pathlib` module (Python 3.4+):
+
+1. Get the current working directory:
+
+```python
+from pathlib import Path
+
+current_directory = Path.cwd()
+print("Current directory:", current_directory)
+```
+
+2. Create a new directory:
+
+```python
+from pathlib import Path
+
+new_directory = Path("my_new_directory")
+new_directory.mkdir()
+```
+
+3. Check if a directory exists:
+
+```python
+from pathlib import Path
+
+directory_to_check = Path("my_directory")
+if directory_to_check.exists():
+    print(f"The directory {directory_to_check} exists.")
+else:
+    print(f"The directory {directory_to_check} does not exist.")
+```
+
+4. List files in a directory:
+
+```python
+from pathlib import Path
+
+directory_path = Path("my_directory")
+files_list = [file.name for file in directory_path.iterdir() if file.is_file()]
+print("Files in the directory:", files_list)
+```
+
+5. Join paths safely:
+
+```python
+from pathlib import Path
+
+directory = Path("my_directory")
+file_name = "example.txt"
+
+# Join the directory and file name safely
+file_path = directory / file_name
+print("File path:", file_path)
+```
+
+Both approaches are valid and can be used depending on the specific use case. The `pathlib` module provides a more modern and convenient way of working with file paths and should be preferred when using Python 3.4+.
