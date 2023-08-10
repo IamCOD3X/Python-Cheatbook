@@ -45,7 +45,7 @@
 - [Reading from and writing to files](#reading-from-and-writing-to-files)
 - [Working with directories and file paths](#working-with-directories-and-file-paths)
 - [File modes and permissions](file-modes-and-permissions)
-- Standard input and output
+- [Standard input and output](standard-input-and-output)
 - Serialization and deserialization (JSON, XML, CSV)
 
 ### Chapter 7: Error Handling and Exceptions
@@ -1821,3 +1821,37 @@ print(f"File permissions for {file_path}: {permissions}")
 Please note that the ability to set file permissions using `os.chmod()` is specific to UNIX-like systems (Linux, macOS, etc.). Windows systems have a different way of managing file permissions.
 
 Remember to replace the file names and paths in the examples with actual file paths on your system. Additionally, the ability to set permissions programmatically may require elevated privileges, depending on your operating system and configuration.
+
+# In Python, you can interact with standard input (usually the keyboard) and standard output (usually the terminal/console) using the built-in `input()` and `print()` functions, respectively. Here's an example that demonstrates how to use standard input and output:
+
+```python
+# Standard Input (Keyboard)
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))  # Convert input to an integer
+
+print(f"Hello, {name}! You are {age} years old.")
+
+# Standard Output (Terminal/Console)
+print("This is a simple example of standard output.")
+print("You can print multiple values using the print function.")
+print("You can also format strings using the f-string syntax.")
+
+# Redirecting Standard Output to a File
+with open('output.txt', 'w') as file:
+    print("This will be written to the file.", file=file)
+    print("So will this.", file=file)
+
+print("Standard output has been redirected to 'output.txt'.")
+
+# Reading from a File and Printing to Standard Output
+with open('output.txt', 'r') as file:
+    file_contents = file.read()
+    print("Contents of 'output.txt':")
+    print(file_contents)
+```
+
+In this example, `input()` is used to read user input from the keyboard, and `print()` is used to display output on the terminal. The program also demonstrates how to redirect standard output to a file using the `file` parameter of the `print()` function.
+
+When you run the above code, it will prompt you for input, display output on the terminal, and then create an "output.txt" file with the redirected output.
+
+Remember to replace file paths and names as needed to match your system's configuration.
