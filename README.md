@@ -44,7 +44,7 @@
 ### Chapter 6: File Handling and Input/Output Operations
 - [Reading from and writing to files](#reading-from-and-writing-to-files)
 - [Working with directories and file paths](#working-with-directories-and-file-paths)
-- File modes and permissions
+- [File modes and permissions](file-modes-and-permissions)
 - Standard input and output
 - Serialization and deserialization (JSON, XML, CSV)
 
@@ -1766,3 +1766,58 @@ print("File path:", file_path)
 ```
 
 Both approaches are valid and can be used depending on the specific use case. The `pathlib` module provides a more modern and convenient way of working with file paths and should be preferred when using Python 3.4+.
+
+# File modes and permissions
+
+In Python, you can work with file modes and permissions using the built-in `open()` function, which is used to open files for reading, writing, or appending. File modes and permissions determine how you can interact with the file. Here's an example that demonstrates different file modes and permissions:
+
+```python
+# File Modes:
+# 'r': Read (default mode)
+# 'w': Write (creates a new file or truncates an existing file)
+# 'a': Append (opens a file for writing at the end, creates a new file if it doesn't exist)
+# 'x': Exclusive creation (creates a new file, but raises an error if the file already exists)
+# 'b': Binary mode (for binary files)
+# 't': Text mode (default mode, for text files)
+
+# File Permissions:
+# 'r': Read permission
+# 'w': Write permission
+# 'x': Execute permission
+
+# Example 1: Read from a file
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print("Content read from the file:")
+    print(content)
+
+# Example 2: Write to a file
+with open('new_file.txt', 'w') as file:
+    file.write("Hello, this is a new file!")
+
+# Example 3: Append to a file
+with open('existing_file.txt', 'a') as file:
+    file.write("\nThis line will be appended.")
+
+# Example 4: Exclusive creation with binary mode
+try:
+    with open('exclusive_file.txt', 'xb') as file:
+        file.write(b"This is an exclusive binary file.")
+except FileExistsError:
+    print("File already exists.")
+
+# Example 5: Setting file permissions (UNIX-like systems only)
+import os
+
+file_path = 'new_file.txt'
+# Set read, write, and execute permissions for the owner
+os.chmod(file_path, 0o700)
+
+# Check file permissions
+permissions = oct(os.stat(file_path).st_mode & 0o777)
+print(f"File permissions for {file_path}: {permissions}")
+```
+
+Please note that the ability to set file permissions using `os.chmod()` is specific to UNIX-like systems (Linux, macOS, etc.). Windows systems have a different way of managing file permissions.
+
+Remember to replace the file names and paths in the examples with actual file paths on your system. Additionally, the ability to set permissions programmatically may require elevated privileges, depending on your operating system and configuration.
