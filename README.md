@@ -50,7 +50,7 @@
 
 ### Chapter 7: Error Handling and Exceptions
 - [Understanding errors and exceptions](understanding-errors-and-exceptions)
-- Exception handling using try-except blocks
+- [Exception handling using try-except blocks](exception-handling-using-try-except-blocks)
 - Raising and handling custom exceptions
 - Exception chaining and cleanup actions
 - Best practices for error handling
@@ -1822,7 +1822,7 @@ Please note that the ability to set file permissions using `os.chmod()` is speci
 
 Remember to replace the file names and paths in the examples with actual file paths on your system. Additionally, the ability to set permissions programmatically may require elevated privileges, depending on your operating system and configuration.
 
-# In Python, you can interact with standard input (usually the keyboard) and standard output (usually the terminal/console) using the built-in `input()` and `print()` functions, respectively. Here's an example that demonstrates how to use standard input and output:
+In Python, you can interact with standard input (usually the keyboard) and standard output (usually the terminal/console) using the built-in `input()` and `print()` functions, respectively. Here's an example that demonstrates how to use standard input and output:
 
 ```python
 # Standard Input (Keyboard)
@@ -2014,3 +2014,53 @@ except ValueError:
 This code will catch any `ValueError` that occurs when trying to convert the user's input to an integer and provide a user-friendly error message.
 
 Understanding and handling exceptions is essential for writing robust and error-tolerant Python programs. It allows you to gracefully handle unexpected situations and prevent your program from crashing.
+
+# Exception handling using try-except blocks
+
+Certainly! In Python, exception handling is done using the `try`, `except` blocks. The basic syntax is as follows:
+
+```python
+try:
+    # Code that might raise an exception
+    # ...
+    result = 10 / 0  # Example of code that may cause an exception
+    # ...
+except ExceptionType as e:
+    # Code to handle the exception
+    # This block is executed if an exception of type ExceptionType is raised in the try block
+    print(f"An exception of type {type(e).__name__} occurred: {e}")
+else:
+    # Code to run if no exception occurred in the try block
+    # This block is optional
+    print("No exception occurred.")
+finally:
+    # Code that will be executed no matter what, whether an exception occurred or not
+    # This block is optional
+    print("Finally block always executed.")
+```
+
+Here's a simple example:
+
+```python
+def divide_numbers(x, y):
+    try:
+        result = x / y
+        print(f"The result of {x} divided by {y} is {result}")
+    except ZeroDivisionError as e:
+        print(f"Error: Division by zero! {e}")
+    except TypeError as e:
+        print(f"Error: Invalid data type! {e}")
+    else:
+        print("No exception occurred.")
+    finally:
+        print("Finally block always executed.")
+
+# Example usages:
+divide_numbers(10, 2)
+divide_numbers(10, 0)  # This will cause a ZeroDivisionError
+divide_numbers("10", 2)  # This will cause a TypeError
+```
+
+In this example, the `try` block contains the code that might raise an exception. If an exception occurs, it is caught by the appropriate `except` block. If no exception occurs, the `else` block is executed. The `finally` block is always executed, whether an exception occurred or not. This can be useful for cleanup operations, such as closing files or releasing resources.
+
+Remember to replace `ExceptionType` with the specific type of exception you want to catch, or you can use a more general `except Exception as e` to catch any type of exception.
