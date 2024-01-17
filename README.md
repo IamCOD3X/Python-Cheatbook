@@ -51,7 +51,7 @@
 ### Chapter 7: Error Handling and Exceptions
 - [Understanding errors and exceptions](understanding-errors-and-exceptions)
 - [Exception handling using try-except blocks](exception-handling-using-try-except-blocks)
-- Raising and handling custom exceptions
+- [Raising and handling custom exceptions](raising-and-handling-custom-exceptions)
 - Exception chaining and cleanup actions
 - Best practices for error handling
 
@@ -2064,3 +2064,54 @@ divide_numbers("10", 2)  # This will cause a TypeError
 In this example, the `try` block contains the code that might raise an exception. If an exception occurs, it is caught by the appropriate `except` block. If no exception occurs, the `else` block is executed. The `finally` block is always executed, whether an exception occurred or not. This can be useful for cleanup operations, such as closing files or releasing resources.
 
 Remember to replace `ExceptionType` with the specific type of exception you want to catch, or you can use a more general `except Exception as e` to catch any type of exception.
+
+# Raising and handling custom exceptions
+
+In Python, you can raise and handle custom exceptions to handle specific situations in your code. Here's an example demonstrating how to create custom exceptions, raise them, and handle them:
+
+```python
+# Custom exception class
+class CustomError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(message)
+
+# Function that may raise the custom exception
+def divide_numbers(a, b):
+    if b == 0:
+        raise CustomError("Cannot divide by zero")
+    return a / b
+
+# Example of using the function and handling the custom exception
+try:
+    result = divide_numbers(10, 2)
+    print("Result:", result)
+    
+    result = divide_numbers(8, 0)  # This will raise the custom exception
+    print("Result:", result)  # This line will not be executed if an exception occurs
+
+except CustomError as ce:
+    print(f"CustomError caught: {ce.message}")
+
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+finally:
+    print("This block will always be executed, regardless of exceptions.")
+```
+
+In this example:
+
+1. We define a custom exception class `CustomError` that inherits from the built-in `Exception` class. The `__init__` method initializes the exception with a custom error message.
+
+2. The `divide_numbers` function checks if the divisor (`b`) is zero and raises the `CustomError` exception with an appropriate message if true.
+
+3. In the main part of the code, we use a try-except block to call the `divide_numbers` function. If an exception occurs, it will be caught and handled. If no exception occurs, the code within the `try` block will be executed.
+
+4. The `except CustomError as ce` block specifically handles the custom exception. You can have multiple `except` blocks for different types of exceptions.
+
+5. The `except Exception as e` block is a catch-all for any other exceptions that might occur.
+
+6. The `finally` block is executed regardless of whether an exception occurred or not. It is typically used for cleanup operations.
+
+When you run this code, you'll see that the custom exception is raised and caught, and the code in the `finally` block is always executed.
