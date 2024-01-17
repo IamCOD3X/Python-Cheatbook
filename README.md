@@ -52,7 +52,7 @@
 - [Understanding errors and exceptions](#understanding-errors-and-exceptions)
 - [Exception handling using try-except blocks](#exception-handling-using-try-except-blocks)
 - [Raising and handling custom exceptions](#raising-and-handling-custom-exceptions)
-- Exception chaining and cleanup actions
+- [Exception chaining and cleanup actions](#exception-chaining-and-cleanup-actions)
 - Best practices for error handling
 
 ### Chapter 8: Working with Libraries and APIs
@@ -2115,3 +2115,49 @@ In this example:
 6. The `finally` block is executed regardless of whether an exception occurred or not. It is typically used for cleanup operations.
 
 When you run this code, you'll see that the custom exception is raised and caught, and the code in the `finally` block is always executed.
+
+# Exception chaining and cleanup actions
+
+Exception chaining allows you to associate multiple exceptions together, showing the relationship between them. Cleanup actions, on the other hand, involve executing specific code regardless of whether an exception occurred or not. Here's an example that demonstrates both exception chaining and cleanup actions:
+
+```python
+class CleanupResource:
+    def __enter__(self):
+        print("Entering resource setup")
+        # Acquire and set up resources
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("Exiting resource cleanup")
+        # Cleanup and release resources
+        if exc_type is not None:
+            print(f"An exception of type {exc_type} occurred with message: {exc_value}")
+
+# Function that performs some operations with a cleanup resource
+def perform_operations():
+    with CleanupResource() as resource:
+        # Simulate some operations that may raise an exception
+        print("Performing operations...")
+        raise ValueError("Simulated exception during operations")
+
+try:
+    perform_operations()
+except Exception as e:
+    print(f"Caught an exception: {e}")
+    # Raise a new exception with the original exception as the cause
+    raise RuntimeError("An additional error occurred") from e
+finally:
+    print("This block will always be executed, regardless of exceptions.")
+```
+
+In this example:
+
+1. The `CleanupResource` class is an example of a resource that needs cleanup. The `__enter__` method is responsible for resource setup, and the `__exit__` method is responsible for resource cleanup.
+
+2. The `perform_operations` function simulates some operations within a `with` statement, where the cleanup resource is utilized. It also raises a simulated exception during the operations.
+
+3. The `try` block attempts to execute the `perform_operations` function. If an exception occurs, the `except` block catches it and raises a new exception (`RuntimeError`) with the original exception (`ValueError`) as the cause using the `from` keyword. This is an example of exception chaining.
+
+4. The `finally` block is used for cleanup actions that must be performed regardless of whether an exception occurred or not. In this example, it will always print a message.
+
+When you run this code, you'll see output indicating the resource setup, the simulated exception during operations, the resource cleanup, and the additional exception with the original exception as the cause. The `finally` block will also always be executed.
