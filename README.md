@@ -44,14 +44,14 @@
 ### Chapter 6: File Handling and Input/Output Operations
 - [Reading from and writing to files](#reading-from-and-writing-to-files)
 - [Working with directories and file paths](#working-with-directories-and-file-paths)
-- [File modes and permissions](file-modes-and-permissions)
-- [Standard input and output](standard-input-and-output)
-- [Serialization and deserialization (JSON, XML, CSV)](serialization-and-deserialization-(JSON,-XML,-CSV))
+- [File modes and permissions](#file-modes-and-permissions)
+- [Standard input and output](#standard-input-and-output)
+- [Serialization and deserialization (JSON, XML, CSV)](#serialization-and-deserialization-(JSON,-XML,-CSV))
 
 ### Chapter 7: Error Handling and Exceptions
-- [Understanding errors and exceptions](understanding-errors-and-exceptions)
-- [Exception handling using try-except blocks](exception-handling-using-try-except-blocks)
-- [Raising and handling custom exceptions](raising-and-handling-custom-exceptions)
+- [Understanding errors and exceptions](#understanding-errors-and-exceptions)
+- [Exception handling using try-except blocks](#exception-handling-using-try-except-blocks)
+- [Raising and handling custom exceptions](#raising-and-handling-custom-exceptions)
 - Exception chaining and cleanup actions
 - Best practices for error handling
 
