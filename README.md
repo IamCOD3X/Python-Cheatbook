@@ -1,4 +1,4 @@
-# 100-Days-of-Python-Cheatbook
+# Python-Cheatbook
 <div align="center">
 <img src="https://github.com/IamCOD3X/10-Days-of-Python-Cheatbook/blob/main/python.png" align="center" style="width: 100%" />
 </div>  
