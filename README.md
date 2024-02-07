@@ -56,7 +56,7 @@
 - [Best practices for error handling](#best-practices-for-error-handling)
 
 ### Chapter 8: Working with Libraries and APIs
-- [Introduction to Python libraries and packages](#introductionto-python-libraries-and-packages)
+- [Introduction to Python libraries and packages](#introduction-to-python-libraries-and-packages)
 - Installing and managing libraries with pip
 - Exploring popular Python libraries (NumPy, Pandas, Matplotlib)
 - Making API requests and handling responses
