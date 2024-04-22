@@ -1856,6 +1856,26 @@ When you run the above code, it will prompt you for input, display output on the
 
 Remember to replace file paths and names as needed to match your system's configuration.
 
+# Standard input and output
+
+Here's a simple example of standard input and output in Python:
+
+```python
+# Standard input example
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+# Standard output example
+print("Hello, {}! You are {} years old.".format(name, age))
+```
+
+In this example:
+- We use the `input()` function to take input from the user. The string passed to `input()` is the prompt displayed to the user.
+- The input obtained from the user is stored in the variables `name` and `age`.
+- We use the `print()` function to display output to the user. The placeholders `{}` are replaced with the values of `name` and `age` using the `format()` method.
+
+When you run this code, it will prompt you to enter your name and age. After entering the values, it will display a greeting message with your name and age.
+
 # Serialization and deserialization
 ##(JSON, XML, CSV) 
 
