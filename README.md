@@ -46,7 +46,7 @@
 - [Working with directories and file paths](#working-with-directories-and-file-paths)
 - [File modes and permissions](#file-modes-and-permissions)
 - [Standard input and output](#standard-input-and-output)
-- [Serialization and deserialization (JSON, XML, CSV)](#serialization-and-deserialization-(JSON,-XML,-CSV))
+- [Serialization and deserialization](#serialization-and-deserialization)
 
 ### Chapter 7: Error Handling and Exceptions
 - [Understanding errors and exceptions](#understanding-errors-and-exceptions)
@@ -1856,7 +1856,8 @@ When you run the above code, it will prompt you for input, display output on the
 
 Remember to replace file paths and names as needed to match your system's configuration.
 
-# Serialization and deserialization (JSON, XML, CSV) 
+# Serialization and deserialization
+##(JSON, XML, CSV) 
 
 Serialization is the process of converting data structures or objects into a format that can be easily stored, transmitted, or reconstructed later. Deserialization is the reverse process, where the serialized data is transformed back into its original form. In Python, you can perform serialization and deserialization using various formats, such as JSON, XML, and CSV. Here's how you can do it using code examples:
 
