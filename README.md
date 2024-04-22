@@ -58,7 +58,7 @@
 ### Chapter 8: Working with Libraries and APIs
 - [Introduction to Python libraries and packages](#introduction-to-python-libraries-and-packages)
 - [Installing and managing libraries with pip](#installing-and-managing-libraries-with-pip)
-- Exploring popular Python libraries (NumPy, Pandas, Matplotlib)
+- [Exploring popular Python libraries](#exploring-popular-python-libraries)
 - Making API requests and handling responses
 - Web scraping with BeautifulSoup
 
@@ -2424,3 +2424,77 @@ print(response.text)
 ```
 
 Remember to install the `requests` library before running this script using `pip install requests`.
+
+# Exploring popular Python libraries
+##(NumPy, Pandas, Matplotlib)
+
+### NumPy
+NumPy is a fundamental package for scientific computing with Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.
+
+```python
+import numpy as np
+
+# Creating a NumPy array
+array = np.array([1, 2, 3, 4, 5])
+
+# Performing operations on the array
+print("Original Array:", array)
+print("Sum of array elements:", np.sum(array))
+print("Mean of array elements:", np.mean(array))
+print("Standard deviation of array elements:", np.std(array))
+
+# Creating a 2D array and performing matrix multiplication
+matrix1 = np.array([[1, 2], [3, 4]])
+matrix2 = np.array([[5, 6], [7, 8]])
+result_matrix = np.dot(matrix1, matrix2)
+print("Matrix Multiplication Result:")
+print(result_matrix)
+```
+
+### Pandas
+Pandas is a powerful data manipulation and analysis library. It provides data structures and functions to efficiently manipulate structured data.
+
+```python
+import pandas as pd
+
+# Creating a DataFrame from a dictionary
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'Salary': [50000, 60000, 70000, 80000]}
+df = pd.DataFrame(data)
+
+# Displaying the DataFrame
+print("DataFrame:")
+print(df)
+
+# Performing operations on the DataFrame
+print("\nAverage Age:", df['Age'].mean())
+print("Maximum Salary:", df['Salary'].max())
+
+# Filtering data
+print("\nPeople with Age > 30:")
+print(df[df['Age'] > 30])
+```
+
+### Matplotlib
+Matplotlib is a plotting library for creating static, animated, and interactive visualizations in Python.
+
+```python
+import matplotlib.pyplot as plt
+
+# Generating data for plotting
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Plotting the data
+plt.figure(figsize=(8, 6))
+plt.plot(x, y, label='sin(x)')
+plt.title('Sine Function')
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+
+These examples demonstrate some basic functionalities of NumPy, Pandas, and Matplotlib. You can explore these libraries further to unleash their full potential for various data manipulation and visualization tasks in Python.
