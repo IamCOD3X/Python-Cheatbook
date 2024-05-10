@@ -59,8 +59,8 @@
 - [Introduction to Python libraries and packages](#introduction-to-python-libraries-and-packages)
 - [Installing and managing libraries with pip](#installing-and-managing-libraries-with-pip)
 - [Exploring popular Python libraries](#exploring-popular-python-libraries)
-- [Making API requests and handling responses](Making-API-requests-and-handling-responses)
-- Web scraping with BeautifulSoup
+- [Making API requests and handling responses](Making-api-requests-and-handling-responses)
+- [Web scraping with BeautifulSoup](web-scraping-with-beautifulsoup)
 
 ### Chapter 9: Database Integration
 - Connecting to databases (MySQL, SQLite, PostgreSQL)
@@ -2623,3 +2623,50 @@ except requests.exceptions.RequestException as e:
 ```
 
 This example sends a GET request to an API endpoint with parameters and headers. It then checks if the request was successful (status code 200), extracts and processes the response data if successful, and handles any errors that may occur during the request. You can modify this code according to your specific API requirements, such as using different HTTP methods (POST, PUT, DELETE), handling different response status codes, etc.
+
+# Web scraping with BeautifulSoup
+
+Python example demonstrating web scraping using BeautifulSoup, a popular Python library for parsing HTML and XML documents:
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+# URL of the website to scrape
+url = "https://example.com"
+
+try:
+    # Send a GET request to the website
+    response = requests.get(url)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Parse the HTML content of the website using BeautifulSoup
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Extract specific elements from the parsed HTML
+        # For example, find all <a> tags (links) on the page
+        links = soup.find_all('a')
+        
+        # Print the text and href attribute of each link
+        for link in links:
+            print("Link Text:", link.text)
+            print("Link URL:", link.get('href'))
+    else:
+        # If the request was not successful, print error message
+        print("Error:", response.status_code, response.text)
+
+except requests.exceptions.RequestException as e:
+    # Handle exceptions that may occur during the request
+    print("Request failed:", e)
+```
+
+This example demonstrates scraping a website (replace `"https://example.com"` with the URL of the website you want to scrape) using BeautifulSoup. It sends a GET request to the website, parses the HTML content using BeautifulSoup, and extracts specific elements (in this case, `<a>` tags representing links). Then, it prints the text and href attribute of each link found on the page.
+
+Make sure to install the required libraries before running the code:
+
+```bash
+pip install requests beautifulsoup4
+```
+
+You can customize this code to scrape different websites and extract different types of data based on your requirements.
