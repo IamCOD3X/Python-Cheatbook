@@ -59,7 +59,7 @@
 - [Introduction to Python libraries and packages](#introduction-to-python-libraries-and-packages)
 - [Installing and managing libraries with pip](#installing-and-managing-libraries-with-pip)
 - [Exploring popular Python libraries](#exploring-popular-python-libraries)
-- Making API requests and handling responses
+- [Making API requests and handling responses](Making-API-requests-and-handling-responses)
 - Web scraping with BeautifulSoup
 
 ### Chapter 9: Database Integration
@@ -2519,3 +2519,107 @@ plt.show()
 ```
 
 These examples demonstrate some basic functionalities of NumPy, Pandas, and Matplotlib. You can explore these libraries further to unleash their full potential for various data manipulation and visualization tasks in Python.
+
+# Making API requests and handling responses
+
+Python example demonstrating how to make API requests and handle responses using the `requests` library:
+
+Certainly! Let's break down the code into written steps:
+
+1. **Import the requests Library**: In Python, we start by importing the `requests` library, which allows us to send HTTP requests easily.
+
+```python
+import requests
+```
+
+2. **Define API Endpoint URL**: Specify the URL of the API endpoint you want to send requests to.
+
+```python
+url = "https://api.example.com/data"
+```
+
+3. **Define Request Parameters (Optional)**: If your API requires parameters, define them in a dictionary.
+
+```python
+params = {
+    "param1": "value1",
+    "param2": "value2"
+}
+```
+
+4. **Define Request Headers (Optional)**: Some APIs might require custom headers for authorization or specifying content type. Define them in a dictionary.
+
+```python
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "Content-Type": "application/json"
+}
+```
+
+5. **Send the Request**: Use the `requests.get()` method to send a GET request to the API endpoint. Pass the URL, parameters (if any), and headers (if any).
+
+```python
+response = requests.get(url, params=params, headers=headers)
+```
+
+6. **Handle the Response**:
+   - Check if the response status code is 200 (indicating success).
+   - If successful, extract data from the response using `.json()` method.
+   - If not successful, handle errors appropriately.
+
+```python
+if response.status_code == 200:
+    data = response.json()
+    print("Response data:", data)
+else:
+    print("Error:", response.status_code, response.text)
+```
+
+7. **Handle Exceptions**: Use a try-except block to catch any exceptions that may occur during the request.
+
+```python
+except requests.exceptions.RequestException as e:
+    print("Request failed:", e)
+```
+
+These steps outline the process of making API requests and handling responses in Python using the `requests` library. You can customize this code according to your specific API requirements.
+
+## Here is complete code : 
+```python
+import requests
+
+# Define the URL of the API endpoint
+url = "https://api.example.com/data"
+
+# Define any parameters to send with the request
+params = {
+    "param1": "value1",
+    "param2": "value2"
+}
+
+# Define headers (if required)
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN",
+    "Content-Type": "application/json"
+}
+
+try:
+    # Make a GET request to the API
+    response = requests.get(url, params=params, headers=headers)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Extract data from the response
+        data = response.json()
+        # Process the data
+        print("Response data:", data)
+    else:
+        # If the request was not successful, print error message
+        print("Error:", response.status_code, response.text)
+
+except requests.exceptions.RequestException as e:
+    # Handle exceptions that may occur during the request
+    print("Request failed:", e)
+```
+
+This example sends a GET request to an API endpoint with parameters and headers. It then checks if the request was successful (status code 200), extracts and processes the response data if successful, and handles any errors that may occur during the request. You can modify this code according to your specific API requirements, such as using different HTTP methods (POST, PUT, DELETE), handling different response status codes, etc.
