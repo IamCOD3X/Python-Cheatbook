@@ -63,7 +63,7 @@
 - [Web scraping with BeautifulSoup](web-scraping-with-beautifulsoup)
 
 ### Chapter 9: Database Integration
-- [Connecting to databases-MySQL-SQLite-PostgreSQL](connecting-to-databases-mySQL-sqlite-postgreSQL)
+- [Connecting to databases-MySQL-SQLite-PostgreSQL](connecting-to-databases-mysql-sqlite-postgresql)
 - Executing queries and retrieving results
 - Using ORM frameworks (SQLAlchemy)
 - Database transactions and error handling
