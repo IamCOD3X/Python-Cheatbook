@@ -63,7 +63,7 @@
 - [Web scraping with BeautifulSoup](web-scraping-with-beautifulsoup)
 
 ### Chapter 9: Database Integration
-- Connecting to databases (MySQL, SQLite, PostgreSQL)
+- [Connecting to databases-MySQL-SQLite-PostgreSQL](connecting-to-databases-mySQL-sqlite-postgreSQL)
 - Executing queries and retrieving results
 - Using ORM frameworks (SQLAlchemy)
 - Database transactions and error handling
@@ -2670,3 +2670,112 @@ pip install requests beautifulsoup4
 ```
 
 You can customize this code to scrape different websites and extract different types of data based on your requirements.
+
+# Connecting to databases (MySQL, SQLite, PostgreSQL)
+
+Here are examples of how to connect to MySQL, SQLite, and PostgreSQL databases using Python. The examples will use the `mysql-connector-python` library for MySQL, `sqlite3` for SQLite, and `psycopg2` for PostgreSQL.
+
+### MySQL
+
+First, install the `mysql-connector-python` package if you haven't already:
+```sh
+pip install mysql-connector-python
+```
+
+#### Code Example:
+```python
+import mysql.connector
+
+# Establish the connection
+conn = mysql.connector.connect(
+    host='localhost',  # Replace with your MySQL server host
+    user='your_username',  # Replace with your MySQL username
+    password='your_password',  # Replace with your MySQL password
+    database='your_database'  # Replace with your MySQL database name
+)
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute a query
+cursor.execute("SELECT * FROM your_table")
+
+# Fetch and print the results
+results = cursor.fetchall()
+for row in results:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+```
+
+### SQLite
+
+No need to install any external package as `sqlite3` is part of the Python Standard Library.
+
+#### Code Example:
+```python
+import sqlite3
+
+# Establish the connection
+conn = sqlite3.connect('your_database.db')  # Replace with your SQLite database file
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute a query
+cursor.execute("SELECT * FROM your_table")
+
+# Fetch and print the results
+results = cursor.fetchall()
+for row in results:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+```
+
+### PostgreSQL
+
+First, install the `psycopg2` package if you haven't already:
+```sh
+pip install psycopg2
+```
+
+#### Code Example:
+```python
+import psycopg2
+
+# Establish the connection
+conn = psycopg2.connect(
+    host='localhost',  # Replace with your PostgreSQL server host
+    database='your_database',  # Replace with your PostgreSQL database name
+    user='your_username',  # Replace with your PostgreSQL username
+    password='your_password'  # Replace with your PostgreSQL password
+)
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute a query
+cursor.execute("SELECT * FROM your_table")
+
+# Fetch and print the results
+results = cursor.fetchall()
+for row in results:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+```
+
+### Summary
+
+- **MySQL**: Uses `mysql-connector-python`.
+- **SQLite**: Uses the built-in `sqlite3` module.
+- **PostgreSQL**: Uses `psycopg2`.
+
+Make sure to replace placeholders like `your_username`, `your_password`, `your_database`, and `your_table` with actual values specific to your database setup.
