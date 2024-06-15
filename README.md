@@ -59,11 +59,11 @@
 - [Introduction to Python libraries and packages](#introduction-to-python-libraries-and-packages)
 - [Installing and managing libraries with pip](#installing-and-managing-libraries-with-pip)
 - [Exploring popular Python libraries](#exploring-popular-python-libraries)
-- [Making API requests and handling responses](Making-api-requests-and-handling-responses)
-- [Web scraping with BeautifulSoup](web-scraping-with-beautifulsoup)
+- [Making API requests and handling responses](#making-api-requests-and-handling-responses)
+- [Web scraping with BeautifulSoup](#web-scraping-with-beautifulsoup)
 
 ### Chapter 9: Database Integration
-- [Connecting to databases-MySQL-SQLite-PostgreSQL](connecting-to-databases-mysql-sqlite-postgresql)
+- [Connecting to databases-MySQL-SQLite-PostgreSQL](#connecting-to-databases-mysql-sqlite-postgresql)
 - Executing queries and retrieving results
 - Using ORM frameworks (SQLAlchemy)
 - Database transactions and error handling
