@@ -64,7 +64,7 @@
 
 ### Chapter 9: Database Integration
 - [Connecting to databases-MySQL-SQLite-PostgreSQL](#connecting-to-databases-mysql-sqlite-postgresql)
-- Executing queries and retrieving results
+- [Executing queries and retrieving results](executing-queries-and-retrieving-results)
 - Using ORM frameworks (SQLAlchemy)
 - Database transactions and error handling
 - Data migration and modeling
@@ -2779,3 +2779,95 @@ conn.close()
 - **PostgreSQL**: Uses `psycopg2`.
 
 Make sure to replace placeholders like `your_username`, `your_password`, `your_database`, and `your_table` with actual values specific to your database setup.
+
+# Executing queries and retrieving result
+
+To interact with databases in Python, you can use the sqlite3 module for SQLite or other database connectors like mysql-connector-python for MySQL. Below is an example using SQLite:
+
+### Code Example:
+```python
+# Import the sqlite3 module
+import sqlite3
+
+def connect_to_database(db_name):
+    """
+    Establish a connection to the SQLite database.
+    Creates the database file if it doesn't exist.
+    """
+    return sqlite3.connect(db_name)
+
+def create_table(cursor):
+    """
+    Create a users table if it does not already exist.
+    """
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        age INTEGER NOT NULL
+    )
+    """)
+
+def insert_data(cursor, name, age):
+    """
+    Insert a new user into the users table.
+    """
+    cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", (name, age))
+
+def fetch_data(cursor):
+    """
+    Fetch all records from the users table.
+    """
+    cursor.execute("SELECT * FROM users")
+    return cursor.fetchall()
+
+def main():
+    # Step 1: Connect to the database
+    connection = connect_to_database("example.db")
+    cursor = connection.cursor()
+
+    # Step 2: Create the table
+    create_table(cursor)
+
+    # Step 3: Insert sample data
+    insert_data(cursor, "Alice", 30)
+    insert_data(cursor, "Bob", 25)
+
+    # Commit changes to the database
+    connection.commit()
+
+    # Step 4: Retrieve and display data
+    users = fetch_data(cursor)
+    print("Query Results:")
+    for user in users:
+        print(f"ID: {user[0]}, Name: {user[1]}, Age: {user[2]}")
+
+    # Step 5: Close the connection
+    connection.close()
+
+# Entry point for the script
+if __name__ == "__main__":
+    main()
+```
+### Explanation:
+Connect to the Database:
+Use the connect_to_database function to establish a connection to the SQLite database. The database file is created automatically if it doesn't exist.
+
+Create the Table:
+The CREATE TABLE IF NOT EXISTS query ensures that the users table is created only if it doesn't already exist.
+
+Insert Data:
+Use parameterized queries (?) to safely insert data, preventing SQL injection attacks.
+
+Fetch Data:
+The SELECT query retrieves all records from the users table, and cursor.fetchall() returns them as a list of tuples.
+
+Close the Connection:
+Always close the database connection to free up resources.
+
+Sample Output
+```
+Query Results:
+ID: 1, Name: Alice, Age: 30
+ID: 2, Name: Bob, Age: 25
+```
