@@ -64,7 +64,7 @@
 
 ### Chapter 9: Database Integration
 - [Connecting to databases-MySQL-SQLite-PostgreSQL](#connecting-to-databases-mysql-sqlite-postgresql)
-- [Executing queries and retrieving results](executing-queries-and-retrieving-results)
+- [Executing queries and retrieving results](#executing-queries-and-retrieving-results)
 - Using ORM frameworks (SQLAlchemy)
 - Database transactions and error handling
 - Data migration and modeling
