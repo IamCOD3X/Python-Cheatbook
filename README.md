@@ -2780,7 +2780,7 @@ conn.close()
 
 Make sure to replace placeholders like `your_username`, `your_password`, `your_database`, and `your_table` with actual values specific to your database setup.
 
-# Executing queries and retrieving result
+# Executing queries and retrieving results
 
 To interact with databases in Python, you can use the sqlite3 module for SQLite or other database connectors like mysql-connector-python for MySQL. Below is an example using SQLite:
 
@@ -2865,8 +2865,8 @@ The SELECT query retrieves all records from the users table, and cursor.fetchall
 Close the Connection:
 Always close the database connection to free up resources.
 
-Sample Output
-```
+### Sample Output
+```python
 Query Results:
 ID: 1, Name: Alice, Age: 30
 ID: 2, Name: Bob, Age: 25
